@@ -1,0 +1,132 @@
+package Ds;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class StackBase {
+	static int[] stack;
+	static int top;
+	
+	static void createStack(int size)
+	{
+		stack =new int[size];
+		top=-1;
+		System.out.println("stack is created with size:"+size);
+	}
+	static void push(int ele)
+	{
+		if(top==stack.length-1)
+		{
+			System.out.println("stack is full");
+		}
+		else
+		{
+			top++;
+			stack[top]=ele;
+			System.out.println(ele+" had been added");
+		}
+	}
+	static void pop()
+	{
+		if(top==-1)
+		{
+			System.out.println("stack empty");
+		}
+		else
+		{
+			System.out.println(stack[top]+" is poped");
+			top--;
+		}
+	}
+	static void display()
+	{
+		if(top==-1)
+		{
+			System.out.println("stack is empty");
+		}
+		else
+		{
+			System.out.println("\n\n=======stack element=====");
+			for(int i=top;i>=0;i--)
+			{
+				System.out.println(stack[i]);
+			}
+		}
+	}
+	
+	static void isEmpty()
+	{
+		if(stack[top]==-1)
+		{
+			System.out.println("stack is empty");
+		}
+		else
+		{
+			System.out.println("stack is not empty");
+		}
+	}
+	
+	static void isFull()
+	{
+		if(stack[top]==stack.length-1)
+		{
+			System.out.println("stack is full");
+		}
+		else
+		{
+			System.out.println("stack is not full");
+		}
+	}
+	
+	static void clear()
+	{
+		top=-1;
+		System.out.println("stack is cleared");
+	}
+	
+	
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("============Stack implementation=============");
+		while(true) {
+			System.out.println("========menu======");
+			System.out.println("1.create stack \n2.push \n3.display \n4.pop "
+					+ "\n5.check Stack Empty \n6.check Stack Full \n7.clear the stack \n8.exit");
+			int op=sc.nextInt();
+			switch(op)
+			{
+			case 1:System.out.println("enter the stack size : ");
+			int size=sc.nextInt();
+			createStack(size);
+			break;
+			
+			case 2: System.out.println("enter the element : ");
+			int ele=sc.nextInt();
+			push(ele);
+			break;
+			
+			case 3:display();
+					break;
+			
+			case 4:pop();
+				break;
+					
+			case 5:isEmpty();break;
+			
+			case 6:isFull();break;
+			
+			case 7:clear();
+			break;
+			
+			case 8: System.out.println("===thank you visit again===");
+			System.exit(0);
+			break;
+			
+			default:System.out.println("invalid option");
+			}
+		}
+		
+	}
+
+}
